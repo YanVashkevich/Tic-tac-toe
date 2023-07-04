@@ -1,8 +1,7 @@
-
 import './App.css';
-import { Board } from './components/Board';
+import { Board } from './components/Board/Board';
 import React, {useState} from 'react';
-import { Scoreboard } from './components/Scoreboard';
+import { Scoreboard } from './components/ScoreBoard/Scoreboard';
 
 function App() {
   const WIN_CONDITIONS = [
