@@ -33,14 +33,19 @@ function App() {
     const winner = checkWinner(updatedBoard);
     
   if(winner){
+
     if(winner === 'O'){
       let {oScores} = scores;
       oScores += 1
       setScores({...scores,oScores})
+
+      // alert('Circle Won!')
     } else {
       let {xScores} = scores;
       xScores += 1
       setScores({...scores,xScores})
+
+      // alert('Cross Won')
     }
   }
 
@@ -55,9 +60,11 @@ function App() {
       const [x, y, z] = WIN_CONDITIONS[i]
 
       if(board[x] && board[x] === board[y] && board[y] === board[z]){
-        setGameover(true)
+        setGameover(true) 
         return board[x];
+        
       }
+
     }
   }
   
@@ -74,8 +81,18 @@ function App() {
 
   return (
     <div className="App">
+
+      <div className='header'>
+        <span className='tic'>TIC</span>-<span className='tac'>TAC</span>-<span className='toe'>TOE</span>
+      </div>
+
       <Scoreboard scores = {scores} xPlaying ={xPlaying}/>
       <Board board = {board} onClick ={handleBoxClick} />
+
+      <div className='restart'>
+        <button onClick={resetBoard}>Restart</button>
+      </div>
+
     </div>
   );
 }
